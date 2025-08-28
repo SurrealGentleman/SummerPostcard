@@ -1,0 +1,591 @@
+@font-face {
+    font-family: 'Black_Diamond';
+    src: url('fonts/black-diamond-2.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cotton_Cloud';
+    src: url('fonts/Cotton Cloud.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lemon_Tuesday';
+    src: url('fonts/Lemon Tuesday.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'AdigianaUltra';
+    src: url('fonts/AdigianaUltra.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html, body{
+    margin:0;
+    font-family: AdigianaUltra, system-ui, Arial, sans-serif;
+    font-size: 15pt;
+    color: #397DA6;
+      /* один и тот же градиент, но через переменные */
+  background-color: #aee1ff;
+
+  /* плавность для цветов */
+  transition: background-color 2s ease;
+}
+
+body.night-mode {
+  color: #988244;
+    background-color: #00122a;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  z-index:2;
+  position:relative;
+}
+
+header{
+  margin-top: 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 0;
+}
+
+header h1{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.circles {
+    position: absolute;
+    top: -24px;
+    left: 12%;
+}
+
+.circle{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #d2e8ff;
+  z-index: -1;
+}
+
+@keyframes tuk1 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50%{
+    transform: translate(0%, 20%);
+  }
+  100%{
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes tuk2 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50%{
+    transform: translate(0%, -20%);
+  }
+  100%{
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes tuk3 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50%{
+    transform: translate(10%, 10%);
+  }
+  100%{
+    transform: translate(0%, 0%);
+  }
+}
+
+@keyframes tuk4 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  50%{
+    transform: translate(-10%, -10%);
+  }
+  100%{
+    transform: translate(0%, 0%);
+  }
+}
+
+.c1{
+    top: 0px;
+    left: -100px;
+    animation: tuk1 3s linear infinite;
+    /* background-color: red; */
+}
+
+.c2{
+    top: 0px;
+    left: 0px;
+    animation: tuk2 3s linear infinite;
+    /* background-color: green; */
+}
+
+.c3{
+    top: 0px;
+    left: 100px;
+    animation: tuk4 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c4{
+    top: 0px;
+    left: 120px;
+    animation: tuk3 3s linear infinite;
+    /* background-color: gold; */
+}
+
+.c5{
+    top: 0px;
+    left: 220px;
+    animation: tuk1 3s linear infinite;
+    /* background-color: red; */
+}
+
+.c6{
+    top: 0px;
+    left: 320px;
+    animation: tuk2 3s linear infinite;
+    /* background-color: green; */
+}
+
+.c7{
+    top: -23px;
+    left: -58px;
+    animation: tuk4 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c8{
+    top: 12px;
+    left: -45px;
+    animation: tuk3 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c9{
+    top: 22px;
+    left: 31px;
+    animation: tuk1 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c10{
+    top: -24px;
+    left: 71px;
+    animation: tuk2 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c11{
+    top: -31px;
+    left: 138px;
+    animation: tuk1 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c12{
+    top: 30px;
+    left: 90px;
+    animation: tuk4 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c13{
+    top: 30px;
+    left: 143px;
+    animation: tuk3 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c14{
+    top: -20px;
+    left: 214px;
+    animation: tuk4 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c15{
+    top: 15px;
+    left: 270px;
+    animation: tuk3 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c16{
+    top: -30px;
+    left: 264px;
+    animation: tuk3 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c17{
+    top: 9px;
+    left: 342px;
+    animation: tuk1 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c18{
+    top: -33px;
+    left: -7px;
+    animation: tuk3 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c19{
+        top: 2px;
+    left: 360px;
+    animation: tuk2 3s linear infinite;
+    /* background-color: blue; */
+}
+
+.c20{
+    top: 13px;
+    left: 374px;
+    animation: tuk3 3s linear infinite;
+    /* background-color: blue; */
+}
+
+section img{
+  width: 200px;
+}
+
+.balls{
+  display: flex;
+  position: relative;
+  justify-content: center;
+      margin-top: 3%;
+
+}
+
+.ball_pos_1{
+  position: absolute;
+  top: 43%;
+    left: 38%;
+}
+
+.ball_pos_2{
+  position: absolute;
+      top: 57%;
+    left: 51%;
+}
+
+.ball_pos_3{
+  position: absolute;
+      top: 8%;
+    left: 31%;
+}
+
+.ball_pos_4{
+  position: absolute;
+      top: 3%;
+    left: 58%;
+}
+
+@keyframes rotate_r {
+  0% {
+    transform: rotate(0deg);
+  }
+  16%{
+    transform: rotate(15deg);
+  }
+  32%{
+    transform: rotate(-15deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotate_l {
+  0% {
+    transform: rotate(0deg);
+  }
+  16%{
+    transform: rotate(-15deg);
+  }
+  32%{
+    transform: rotate(15deg);
+  }
+  50%{
+    transform: rotate(0deg);
+  }
+}
+
+.balls .rotate_right {
+  animation: rotate_r linear both;
+  animation-timeline: scroll(); /* или scroll() для элемента */
+  animation-range: entry 0% cover 50%; /* Диапазон прокрутки, влияющий на анимацию */
+}
+
+.balls .rotate_left {
+  animation: rotate_l linear both;
+  animation-timeline: scroll(); /* или scroll() для элемента */
+  animation-range: entry 0% cover 50%; /* Диапазон прокрутки, влияющий на анимацию */
+}
+
+.block_plus_text{
+  margin-top: 3%;
+  text-align: center;
+}
+
+.road{
+  width: 18%;
+}
+
+.flag_start{
+  position: absolute;
+  width: 4%;
+  top: -3%;
+  left: 47%;
+}
+
+.flag_end{
+  position: absolute;
+  width: 4%;
+    top: 93%;
+  left: 47%;
+}
+
+.line-container {
+  position: relative;
+  margin-top: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cute_text{
+  position: absolute;
+}
+
+.ct1{
+  top: 1%;
+  left: 29%;
+}
+.ct2{
+top: 18%;
+    left: 35%;
+}
+.ct3{
+    top: 7%;
+    left: 49%;
+}
+.ct4{
+    top: 31%;
+    left: 45%;
+}
+.ct5{
+    top: 44%;
+    left: 34%;
+}
+.ct6{
+top: 51%;
+    left: 46%;
+}
+.ct7{
+    top: 59%;
+    left: 56%;
+}
+.ct8{
+    top: 63%;
+    left: 26%;
+}
+.ct9{
+    top: 82%;
+    left: 31%;
+}
+.ct10{
+    top: 34%;
+    left: 56%;
+}
+.ct11{
+    top: 90%;
+    left: 57%;
+}
+.ct12{
+    top: 77%;
+    left: 53%;
+}
+
+
+
+
+footer{
+  text-align: center;
+  margin: 4% 0% 1%;
+}
+
+
+#movingObject {
+  width: 3%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+
+.block_card{
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+  height: 440px;
+  
+}
+
+.card {
+  perspective: 1000px;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* скрывает обратную сторону при повороте */
+  display: flex;
+  flex-direction: column;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+.back::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url(assets/summer/city.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px); /* прозрачность фона */
+  z-index: -1;   /* помещаем за контентом */
+  transform: rotateY(180deg);
+}
+
+.card_photo_f{
+  width: 100%;
+}
+
+.card_photo_b{
+  width: 40%;
+  position: absolute;
+  bottom: 14%;
+  right: 1%;
+}
+
+.text_photo{
+  position: absolute;
+  bottom: 2%;
+  right: 13%;
+}
+
+.text_card{
+  margin: 4% 2%;
+}
+
+.click{
+position: absolute;
+    width: 49px;
+    height: 36px;
+    top: 31%;
+    left: 63%;
+    z-index: 100;
+}
+
+
+.back_btn{
+  position: absolute;
+  width: 4%;
+  bottom: 14%;
+  left: 4%;
+}
+
+
+
+.png_small{
+    width: 16%;
+    position: absolute;
+}
+
+.ps1{
+    top: -120%;
+    left: -20%;
+}
+.ps2{
+    top: 80%;
+    left: -20%;
+}
+.ps3{
+    top: 118%;
+    left: 65%;
+}
+.ps4{
+  top: 28%;
+    left: -20%;
+}
+.ps5{
+    top: -31%;
+    left: -20%;
+}
+.ps6{
+    top: -10%;
+    left: -20%;
+}
+.ps7{
+    top: 60%;
+    left: 70%;
+}
+.ps8{
+    top: 139%;
+    left: 70%;
+}
+.ps9{
+    top: 111%;
+    left: -11%;
+}
+.ps10{
+    top: 119%;
+    left: 50%;
+}
+.ps11{
+    top: -180%;
+    left: 38%;
+}
+.ps12{
+    width: 150%;
+    top: 52%;
+    left: -92%;
+}
