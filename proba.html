@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Персональная открытка</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .circles-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+            filter: blur(1px);
+        }
+
+        /* Позиционирование кружочков */
+        .circle:nth-child(1) {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            top: 60%;
+            left: 15%;
+            animation-delay: 1s;
+        }
+
+        .circle:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ffd166, #06d6a0);
+            top: 30%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .circle:nth-child(4) {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, #118ab2, #073b4c);
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 3s;
+        }
+
+        .circle:nth-child(5) {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #ef476f, #ff9e00);
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation-delay: 4s;
+        }
+
+        /* Анимация кружочков */
+        /* @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.6;
+            }
+            25% {
+                transform: translateY(-20px) translateX(15px) scale(1.1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(10px) translateX(-10px) scale(0.9);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translateY(-15px) translateX(-15px) scale(1.05);
+                opacity: 0.75;
+            }
+        } */
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Адаптивность для мобильных устройств */
+        @media (max-width: 768px) {
+            .card {
+                padding: 40px 20px;
+                margin: 0 15px;
+            }
+
+            .circle {
+                opacity: 0.5;
+            }
+
+            .circle:nth-child(1) {
+                width: 80px;
+                height: 80px;
+                top: 15%;
+                left: 5%;
+            }
+
+            .circle:nth-child(2) {
+                width: 70px;
+                height: 70px;
+                top: 70%;
+                left: 10%;
+            }
+
+            .circle:nth-child(3) {
+                width: 60px;
+                height: 60px;
+                top: 25%;
+                right: 5%;
+            }
+
+            .circle:nth-child(4) {
+                width: 65px;
+                height: 65px;
+                bottom: 15%;
+                right: 15%;
+            }
+
+            .circle:nth-child(5) {
+                width: 50px;
+                height: 50px;
+                top: 8%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .circle {
+                display: none;
+            }
+            
+            .circle:nth-child(1),
+            .circle:nth-child(5) {
+                display: block;
+                opacity: 0.4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <!-- Кружочки на заднем плане -->
+        <div class="circles-container">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </div>
+
+        <!-- Контент с заголовком -->
+        <div class="content">
+            <h1>ПЕРСОНАЛЬНАЯ ОТКРЫТКА С ВАШИМ ТЕКСТОМ</h1>
+            <p class="subtitle">Создайте уникальную открытку с вашим персональным посланием</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открытка для тебя!</title>
+    <style>
+        @font-face {
+            font-family: 'AdigianaUltra';
+            src: url('fonts/AdigianaUltra.ttf');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #aee1ff;
+            font-family: AdigianaUltra;
+            font-size: 9pt;
+            color: #397DA6;
+            transition: background-color 2s ease;
+        }
+        body.night-mode {
+            color: #988244;
+            background-color: #00122a;
+        }
+        main{
+            display: flex;
+            flex-direction: column;
+            z-index: 0;
+            position: relative;
+        }
+        header{
+            margin-top: 10%;
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 15vh;
+            max-width: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .circles-container {
+            position: absolute;
+            top: 26%;
+            left: 0;
+            width: 100%;
+            max-width: 800px;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: #d2e8ff;
+            z-index: 1;
+            width: 50px;
+            height: 50px;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+        /* Позиционирование кружочков */
+        .circle:nth-child(1) {
+            top: 5%;
+            left: 5%;
+            animation: cloudUP 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(2) {
+            top: -10%;
+            left: 13%;
+            animation: cloudUP 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(3) {
+            top: -15%;
+            left: 23%;
+            animation: cloudDOWNRIGHT 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(4) {
+            top: 10%;
+            left: 33%;
+            animation: cloudDOWN 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(5) {
+            top: -15%;
+            left: 43%;
+            animation: cloudDOWN 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(6) {
+            top: -5%;
+            left: 53%;
+            animation: cloudUPRIGHT 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(7) {
+            top: -10%;
+            left: 63%;
+            animation: cloudUP 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(8) {
+            top: 15%;
+            left: 73%;
+            animation: cloudDOWN 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(9) {
+            top: 10%;
+            left: 83%;
+            animation: cloudDOWN 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(10) {
+            /* background-color: red; */
+            top: 10%;
+            left: 8%;
+            animation: cloudDOWN 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(11) {
+            /* background-color: red; */
+            top: 10%;
+            left: 18%;
+            animation: cloudDOWN 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(12) {
+            /* background-color: red; */
+            top: 20%;
+            left: 23%;
+            animation: cloudDOWN 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(13) {
+            /* background-color: red; */
+            top: -10%;
+            left: 33%;
+            animation: cloudUPLEFT 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(14) {
+            /* background-color: red; */
+            top: 10%;
+            left: 43%;
+            animation: cloudDOWNRIGHT 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(15) {
+            /* background-color: red; */
+            top: 20%;
+            left: 53%;
+            animation: cloudDOWN 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(16) {
+            /* background-color: red; */
+            top: 20%;
+            left: 63%;
+            animation: cloudUP 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(17) {
+            /* background-color: red; */
+            top: -20%;
+            left: 72%;
+            animation: cloudDOWN 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(18) {
+            /* background-color: red; */
+            top: 20%;
+            left: 38%;
+            animation: cloudDOWNRIGHT 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(19) {
+            /* background-color: red; */
+            top: 0%;
+            left: 73%;
+            animation: cloudDOWNRIGHT 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(20) {
+            /* background-color: red; */
+            top: -10%;
+            left: 80%;
+            animation: cloudDOWNRIGHT 3s linear infinite;
+            animation-delay: 0s;
+        }
+        .circle:nth-child(21) {
+            /* background-color: red; */
+            top: 0%;
+            left: 59%;
+            animation: cloudDOWNRIGHT 3s linear infinite;
+            animation-delay: 0s;
+        }
+        @keyframes cloudUP {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            50%{
+                transform: translate(0%, -20%);
+            }
+            100%{
+                transform: translate(0%, 0%);
+            }
+        }
+        @keyframes cloudDOWN {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            50%{
+                transform: translate(0%, 20%);
+            }
+            100%{
+                transform: translate(0%, 0%);
+            }
+        }
+        @keyframes cloudDOWNRIGHT {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            50%{
+                transform: translate(10%, 10%);
+            }
+            100%{
+                transform: translate(0%, 0%);
+            }
+        }
+        @keyframes cloudUPLEFT {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            50%{
+                transform: translate(-10%, -10%);
+            }
+            100%{
+                transform: translate(0%, 0%);
+            }
+        }
+        @keyframes cloudUPRIGHT {
+            0% {
+                transform: translate(0%, 0%);
+            }
+            50%{
+                transform: translate(-20%, -20%);
+            }
+            100%{
+                transform: translate(0%, 0%);
+            }
+        }
+        @media (min-width: 400px) {
+            body {
+                font-size: 10pt;
+            }
+            header{
+                height: 17vh;
+            }
+            .circle {
+                width: 60px;
+                height: 60px;
+            }
+        }
+        @media (min-width: 460px) {
+            body {
+                font-size: 12pt;
+            }
+            header{
+                height: 20vh;
+            }
+            .circles-container {
+                top: 20%;
+                left: -2%
+            }
+            .circle {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        @media (min-width: 500px) {
+            body {
+                font-size: 12pt;
+            }
+            header{
+                height: 20vh;
+            }
+            .circles-container {
+                top: 20%;
+                left: 0%
+            }
+            .circle {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        img
+/* 
+
+
+
+
+
+        header{
+            margin-top: 10%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 0;
+        }
+        header::before{
+            content: "";
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            
+        }
+        header:nth-child(1) {
+            content: "";
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background-color: green;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+        } */
+
+
+
+        /* .circles {
+            width: 100%;
+            height: auto;
+        }
+        .container {
+            position: relative;
+            width: 500px;
+            height: 200px;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+        } */
+
+        /* Первая линия (красные кружочки) */
+        /* .line-1 .circle {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            box-shadow: 0 0 25px rgba(255, 107, 107, 0.7);
+            width: 60px;
+            height: 60px;
+        } */
+
+        /* Вторая линия (синие кружочки) */
+        /* .line-2 .circle {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            box-shadow: 0 0 25px rgba(78, 205, 196, 0.7);
+            width: 50px;
+            height: 50px;
+        } */
+
+        /* Позиционирование кружочков первой линии */
+        /* .line-1 .circle:nth-child(1) { left: 50px; top: 70px; animation-delay: 0s; }
+        .line-1 .circle:nth-child(2) { left: 150px; top: 70px; animation-delay: 0.3s; }
+        .line-1 .circle:nth-child(3) { left: 250px; top: 70px; animation-delay: 0.6s; }
+        .line-1 .circle:nth-child(4) { left: 350px; top: 70px; animation-delay: 0.9s; }
+        .line-1 .circle:nth-child(5) { left: 450px; top: 70px; animation-delay: 1.2s; } */
+
+        /* Позиционирование кружочков второй линии */
+        /* .line-2 .circle:nth-child(1) { left: 80px; top: 80px; animation-delay: 0.1s; }
+        .line-2 .circle:nth-child(2) { left: 180px; top: 80px; animation-delay: 0.4s; }
+        .line-2 .circle:nth-child(3) { left: 280px; top: 80px; animation-delay: 0.7s; }
+        .line-2 .circle:nth-child(4) { left: 380px; top: 80px; animation-delay: 1.0s; }
+        .line-2 .circle:nth-child(5) { left: 480px; top: 80px; animation-delay: 1.3s; } */
+
+        /* Анимация наплывания */
+        /* @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+                opacity: 0.9;
+                z-index: 1;
+            }
+            25% {
+                transform: translateY(-40px) scale(1.2);
+                opacity: 1;
+                z-index: 10;
+            }
+            50% {
+                transform: translateY(0) scale(1);
+                opacity: 0.9;
+                z-index: 1;
+            }
+            75% {
+                transform: translateY(40px) scale(0.8);
+                opacity: 0.8;
+                z-index: 0;
+            }
+        } */
+
+        /* Дополнительная анимация для некоторых кружочков */
+        /* .circle:nth-child(odd) {
+            animation: float-odd 5s ease-in-out infinite;
+        }
+
+        @keyframes float-odd {
+            0%, 100% {
+                transform: translateX(0) rotate(0deg);
+            }
+            50% {
+                transform: translateX(20px) rotate(180deg);
+            }
+        } */
+
+
+
+        
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #333;
+        }
+        
+        .svg-section {
+            position: relative;
+            background: white;
+        }
+        
+        .container {
+            width: 90vw;
+            height: 80vh;
+            border: 3px solid #2c3e50;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        #svg-container {
+            width: 100%;
+            height: 100%;
+            background: #ecf0f1;
+        }
+        
+        .controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        
+        .info {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+            font-weight: bold;
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #e0e0e0;
+            z-index: 1000;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #e74c3c;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="day"></div>
+        <div class="night"></div>
+        <div class="stars"></div>
+    </div>
+    <!-- <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div> -->
+    
+    <!-- <div class="info" id="status-info">
+        Скроллите вниз чтобы увидеть анимацию
+    </div> -->
+    
+    <!-- <div class="section">
+        <h1>Прокрутите вниз чтобы начать</h1>
+    </div> -->
+    <main>
+        <header>
+            <!-- Кружочки на заднем плане -->
+            <div class="circles-container">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+
+            <!-- Контент с заголовком -->
+            <div class="content">
+                <h1>ПЕРСОНАЛЬНАЯ ОТКРЫТКА...</h1>
+            </div>
+        </header>
+
+        <section class="balls">
+            <img src="assets/summer/balls.png" class="ball_pos_1 rotate_right" alt="воздушный шарик">
+            <img src="assets/summer/balls.png" class="ball_pos_2 rotate_left" alt="воздушный шарик">
+            <img src="assets/summer/balls.png" class="ball_pos_3 rotate_left" alt="воздушный шарик">
+            <img src="assets/summer/balls.png" class="ball_pos_4 rotate_right" alt="воздушный шарик">
+            <img src="assets/summer/balls.png" class="ball_pos_5 rotate_left" alt="воздушный шарик">
+        </section>
+
+
+
+
+
+        <!-- <header>
+            <h1>ПЕРСОНАЛЬНАЯ ОТКРЫТКА...
+                <div class="container">
+                    <div class="title">ПЕРСОНАЛЬНАЯ ОТКРЫТКА...</div>
+                 -->
+                    <!-- Первая линия кружочков -->
+                    <!-- <div class="line-1">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div> -->
+                
+                    <!-- Вторая линия кружочков -->
+                    <!-- <div class="line-2">
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                        <div class="circle"></div>
+                    </div>
+                </div>
+
+
+              <div class="circles">
+                <div class="circle c1"></div>
+                <div class="circle c2"></div>
+                <div class="circle c3"></div>
+                <div class="circle c4"></div>
+                <div class="circle c5"></div>
+                <div class="circle c6"></div>
+
+                <div class="circle c7"></div>
+                <div class="circle c8"></div>
+                <div class="circle c9"></div>
+                <div class="circle c10"></div>
+                <div class="circle c11"></div>
+                <div class="circle c12"></div>
+                <div class="circle c13"></div>
+                <div class="circle c14"></div>
+                <div class="circle c15"></div>
+                <div class="circle c16"></div>
+                <div class="circle c17"></div>
+                <div class="circle c18"></div>
+                <div class="circle c19"></div>
+                <div class="circle c20"></div>
+              </div>
+            </h1>
+        </header> -->
+    </main>
+    
+    <div class="section svg-section">
+        <div class="container">
+            <svg id="svg-container" viewBox="0 120 400 600"></svg>
+        </div>
+    </div>
+    
+    <!-- <div class="section">
+        <h1>Продолжайте скроллить после анимации</h1>
+    </div>
+    
+    <div class="section">
+        <h1>Конец страницы</h1>
+    </div>
+    
+    <div class="controls">
+        <button onclick="resetAnimation()">Сбросить анимацию</button>
+        <span style="margin-left: 20px; color: #666;">Прогресс: <span id="progress-text">0%</span></span>
+    </div> -->
+
+    <script>
+        class ScrollPathAnimation {
+            constructor() {
+                this.svg = document.getElementById('svg-container');
+                this.path = null;
+                this.movingElement = null;
+                this.pathLength = 0;
+                this.currentProgress = 0;
+                this.isAnimating = false;
+                this.svgSection = null;
+                this.svgTop = 0;
+                this.svgHeight = 0;
+                this.windowHeight = window.innerHeight;
+                
+                this.init();
+                this.setupEventListeners();
+            }
+            
+            init() {
+                this.createPath();
+                this.createMovingElement();
+                this.updatePathLength();
+                this.findSvgSection();
+            }
+            
+            createPath() {
+                // Создаем defs и стили
+                const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+                
+                const style = document.createElementNS("http://www.w3.org/2000/svg", "style");
+                style.textContent = `
+                    .cls-1,.cls-2,.cls-3,.cls-4{fill:none;stroke-miterlimit:10;}
+                    .cls-1,.cls-3{stroke:#435b6b;}
+                    .cls-1{stroke-width:28px;}
+                    .cls-2{stroke:#ffd15d;stroke-width:23px;}
+                    .cls-3{stroke-width:20px;}
+                    .cls-4{stroke:#c6c6c6;stroke-width:2px;stroke-dasharray:12;}
+                `;
+                
+                defs.appendChild(style);
+                this.svg.appendChild(defs);
+
+                // Ваш путь данных
+                const pathData = "M152,30.6C101,31,65.35,57.8,63.5,84.16c-1.48,21,18.28,43.56,39.77,52.68,37.11,15.76,63.2-15.42,98.35,2,16.1,8,31,24.63,32.91,43.9,2.35,23.84-15.47,49-37.24,59.05-39.63,18.35-70.71-23.21-117-5.2-2.68,1-35.31,14.27-41.81,42.84-5.33,23.46,8.4,50.9,27.87,65.55,41.67,31.34,129.56.17,181.82,3.33,24.76,1.49,68.47,4.13,89,32.51,17.29,23.87,16.64,58.84-12,78.58C304.33,473.8,286,474,187.63,474c-57.86,0-75.35,6.5-92.38,13.16C71.9,496.33,46.09,516.46,38,546c-5.73,20.84-5.63,50.57,11.61,70.45C60.4,629,108.42,652,175.76,614.16c41.57-23.34,82.07-47.12,118.84-36.77,47.62,13.4,56.86,68.17,44.91,95.32-20.9,47.51-98.33,87.07-155.61,80.52";
+
+                // Создаем 4 пути с разными классами
+                const paths = [
+                    { class: 'cls-1', transform: 'translate(0 0)' },
+                    { class: 'cls-2', transform: 'translate(0 0)' },
+                    { class: 'cls-3', transform: 'translate(0 0)' },
+                    { class: 'cls-4', transform: 'translate(0 0)' }
+                ];
+
+                paths.forEach(pathConfig => {
+                    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                    path.setAttribute("d", pathData);
+                    path.setAttribute("class", pathConfig.class);
+                    path.setAttribute("transform", pathConfig.transform);
+                    this.svg.appendChild(path);
+                });
+
+                // Основной путь для анимации (невидимый)
+                // this.path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                // this.path.setAttribute("d", pathData);
+                // this.path.setAttribute("transform", "translate(-20.56 -16.6)");
+                // this.path.setAttribute("fill", "none");
+                // this.path.setAttribute("stroke", "transparent");
+                // this.path.setAttribute("stroke-width", "5");
+                // this.path.id = "animation-path";
+                this.path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                this.path.setAttribute("d", pathData);
+                this.path.setAttribute("fill", "none");
+                this.path.setAttribute("stroke", "#3498db");
+                this.path.setAttribute("stroke-width", "4");
+                this.path.setAttribute("stroke-dasharray", "8,6");
+                this.path.setAttribute("stroke-linecap", "round");
+                this.path.id = "animation-path";
+                
+                this.svg.appendChild(this.path);
+            }
+            
+            createMovingElement() {
+                this.movingElement = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                this.movingElement.setAttribute("r", "12");
+                this.movingElement.setAttribute("fill", "#e74c3c");
+                this.movingElement.setAttribute("stroke", "#c0392b");
+                this.movingElement.setAttribute("stroke-width", "3");
+                this.movingElement.setAttribute("filter", "url(#glow)");
+                
+                // Добавляем эффект свечения
+                const filter = document.createElementNS("http://www.w3.org/2000/svg", "filter");
+                filter.setAttribute("id", "glow");
+                const feGaussianBlur = document.createElementNS("http://www.w3.org/2000/svg", "feGaussianBlur");
+                feGaussianBlur.setAttribute("stdDeviation", "3.5");
+                feGaussianBlur.setAttribute("result", "coloredBlur");
+                const feMerge = document.createElementNS("http://www.w3.org/2000/svg", "feMerge");
+                const feMergeNode1 = document.createElementNS("http://www.w3.org/2000/svg", "feMergeNode");
+                feMergeNode1.setAttribute("in", "coloredBlur");
+                const feMergeNode2 = document.createElementNS("http://www.w3.org/2000/svg", "feMergeNode");
+                feMergeNode2.setAttribute("in", "SourceGraphic");
+                
+                feMerge.appendChild(feMergeNode1);
+                feMerge.appendChild(feMergeNode2);
+                filter.appendChild(feGaussianBlur);
+                filter.appendChild(feMerge);
+                
+                const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+                defs.appendChild(filter);
+                this.svg.appendChild(defs);
+                this.svg.appendChild(this.movingElement);
+            }
+            
+            findSvgSection() {
+                this.svgSection = document.querySelector('.svg-section');
+                if (this.svgSection) {
+                    const rect = this.svgSection.getBoundingClientRect();
+                    this.svgTop = rect.top + window.scrollY;
+                    this.svgHeight = rect.height;
+                }
+            }
+            
+            updatePathLength() {
+                this.pathLength = this.path.getTotalLength();
+            }
+            
+            updateElementPosition(progress) {
+                if (this.pathLength === 0) return;
+                
+                const point = this.path.getPointAtLength(progress * this.pathLength);
+                this.movingElement.setAttribute("cx", point.x);
+                this.movingElement.setAttribute("cy", point.y);
+                
+                // Обновляем прогресс
+                document.getElementById('progress-text').textContent = Math.round(progress * 100) + '%';
+                document.getElementById('progress-fill').style.width = (progress * 100) + '%';
+            }
+            
+            handleScroll() {
+                const scrollY = window.scrollY;
+                const windowHeight = window.innerHeight;
+                
+                // Находим позицию SVG секции
+                this.findSvgSection();
+                
+                if (!this.svgSection) return;
+                
+                const svgBottom = this.svgTop + this.svgHeight;
+                const scrollPosition = scrollY + windowHeight;
+                
+                // Проверяем, находится ли SVG в области видимости
+                if (scrollPosition > this.svgTop && scrollY < svgBottom) {
+                    this.isAnimating = true;
+                    document.getElementById('status-info').textContent = 'Анимация активна';
+                    
+                    // Вычисляем прогресс анимации (0-1)
+                    const animationStart = this.svgTop - windowHeight * 0.5;
+                    const animationEnd = svgBottom - windowHeight * 0.5;
+                    const animationRange = animationEnd - animationStart;
+                    
+                    if (animationRange > 0) {
+                        this.currentProgress = (scrollY - animationStart) / animationRange;
+                        this.currentProgress = Math.min(Math.max(this.currentProgress, 0), 1);
+                        this.updateElementPosition(this.currentProgress);
+                    }
+                } else {
+                    this.isAnimating = false;
+                    document.getElementById('status-info').textContent = 'Скроллите чтобы увидеть анимацию';
+                }
+            }
+            
+            handleResize() {
+                this.windowHeight = window.innerHeight;
+                this.findSvgSection();
+                this.updatePathLength();
+                this.updateElementPosition(this.currentProgress);
+            }
+            
+            setupEventListeners() {
+                window.addEventListener('scroll', () => this.handleScroll());
+                window.addEventListener('resize', () => this.handleResize());
+                
+                const resizeObserver = new ResizeObserver(() => this.handleResize());
+                resizeObserver.observe(this.svg);
+                
+                // Обновляем позицию при загрузке
+                setTimeout(() => this.handleScroll(), 100);
+            }
+            
+            reset() {
+                this.currentProgress = 0;
+                this.updateElementPosition(0);
+                window.scrollTo(0, 0);
+                document.getElementById('status-info').textContent = 'Скроллите чтобы увидеть анимацию';
+            }
+        }
+
+        let pathAnimation;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            pathAnimation = new ScrollPathAnimation();
+            
+            // Добавляем начальную подсказку
+            setTimeout(() => {
+                document.getElementById('status-info').textContent = 'Скроллите вниз чтобы начать анимацию';
+            }, 1000);
+        });
+
+        function resetAnimation() {
+            if (pathAnimation) {
+                pathAnimation.reset();
+            }
+        }
+
+        // Плавный скролл для лучшего UX
+        document.addEventListener('wheel', (e) => {
+            if (pathAnimation && pathAnimation.isAnimating) {
+                e.preventDefault();
+                window.scrollBy(0, e.deltaY * 0.3);
+            }
+        }, { passive: false });
+    </script>
+</body>
+</html>

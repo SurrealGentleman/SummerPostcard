@@ -1,25 +1,4 @@
 @font-face {
-    font-family: 'Black_Diamond';
-    src: url('fonts/black-diamond-2.ttf');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Cotton_Cloud';
-    src: url('fonts/Cotton Cloud.ttf');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Lemon_Tuesday';
-    src: url('fonts/Lemon Tuesday.otf');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'AdigianaUltra';
     src: url('fonts/AdigianaUltra.ttf');
     font-weight: normal;
@@ -27,20 +6,17 @@
 }
 
 html, body{
-    margin:0;
-    font-family: AdigianaUltra, system-ui, Arial, sans-serif;
-    font-size: 15pt;
-    color: #397DA6;
-      /* один и тот же градиент, но через переменные */
+  margin:0;
+  font-family: AdigianaUltra, system-ui, Arial, sans-serif;
+  font-size: 16pt;
+  color: #397DA6;
   background-color: #aee1ff;
-
-  /* плавность для цветов */
   transition: background-color 2s ease;
 }
 
 body.night-mode {
   color: #988244;
-    background-color: #00122a;
+  background-color: #00122a;
 }
 
 main{
@@ -133,140 +109,119 @@ header h1{
     top: 0px;
     left: -100px;
     animation: tuk1 3s linear infinite;
-    /* background-color: red; */
 }
 
 .c2{
     top: 0px;
     left: 0px;
     animation: tuk2 3s linear infinite;
-    /* background-color: green; */
 }
 
 .c3{
     top: 0px;
     left: 100px;
     animation: tuk4 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c4{
     top: 0px;
     left: 120px;
     animation: tuk3 3s linear infinite;
-    /* background-color: gold; */
 }
 
 .c5{
     top: 0px;
     left: 220px;
     animation: tuk1 3s linear infinite;
-    /* background-color: red; */
 }
 
 .c6{
     top: 0px;
     left: 320px;
     animation: tuk2 3s linear infinite;
-    /* background-color: green; */
 }
 
 .c7{
     top: -23px;
     left: -58px;
     animation: tuk4 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c8{
     top: 12px;
     left: -45px;
     animation: tuk3 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c9{
     top: 22px;
     left: 31px;
     animation: tuk1 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c10{
     top: -24px;
     left: 71px;
     animation: tuk2 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c11{
     top: -31px;
     left: 138px;
     animation: tuk1 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c12{
     top: 30px;
     left: 90px;
     animation: tuk4 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c13{
     top: 30px;
     left: 143px;
     animation: tuk3 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c14{
     top: -20px;
     left: 214px;
     animation: tuk4 3s linear infinite;
-    /* background-color: blue; */
 }
-
 .c15{
     top: 15px;
     left: 270px;
     animation: tuk3 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c16{
     top: -30px;
     left: 264px;
     animation: tuk3 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c17{
     top: 9px;
     left: 342px;
     animation: tuk1 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c18{
     top: -33px;
     left: -7px;
     animation: tuk3 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c19{
         top: 2px;
     left: 360px;
     animation: tuk2 3s linear infinite;
-    /* background-color: blue; */
 }
 
 .c20{
     top: 13px;
     left: 374px;
     animation: tuk3 3s linear infinite;
-    /* background-color: blue; */
 }
 
 section img{
@@ -277,7 +232,7 @@ section img{
   display: flex;
   position: relative;
   justify-content: center;
-      margin-top: 3%;
+  margin-top: 3%;
 
 }
 
@@ -337,14 +292,14 @@ section img{
 
 .balls .rotate_right {
   animation: rotate_r linear both;
-  animation-timeline: scroll(); /* или scroll() для элемента */
-  animation-range: entry 0% cover 50%; /* Диапазон прокрутки, влияющий на анимацию */
+  animation-timeline: scroll();
+  animation-range: entry 0% cover 50%;
 }
 
 .balls .rotate_left {
   animation: rotate_l linear both;
-  animation-timeline: scroll(); /* или scroll() для элемента */
-  animation-range: entry 0% cover 50%; /* Диапазон прокрутки, влияющий на анимацию */
+  animation-timeline: scroll();
+  animation-range: entry 0% cover 50%;
 }
 
 .block_plus_text{
@@ -473,7 +428,7 @@ footer{
   position: absolute;
   width: 100%;
   height: 100%;
-  backface-visibility: hidden; /* скрывает обратную сторону при повороте */
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -490,8 +445,8 @@ footer{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(5px); /* прозрачность фона */
-  z-index: -1;   /* помещаем за контентом */
+  filter: blur(5px);
+  z-index: -1;
   transform: rotateY(180deg);
 }
 
@@ -585,7 +540,230 @@ position: absolute;
     left: 38%;
 }
 .ps12{
-    width: 150%;
+    width: 95%;
     top: 52%;
     left: -92%;
+}
+
+
+
+
+/* ==================== АДАПТИВ ==================== */
+
+/* Планшеты */
+@media (max-width: 768px) {
+
+}
+
+/* Телефоны */
+@media (max-width: 480px) {
+  html, body{
+    font-size: 9pt;
+  }
+
+  header{
+  margin-top: 30px;
+}
+
+  .circles {
+    position: relative;
+    display: flex;
+    top: -42px;
+    left: 0%;
+    flex-wrap: wrap;
+    width: 100%;
+  } 
+
+  .circle{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #d2e8ff;
+    z-index: -1;
+  }
+
+  .c1{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk1 3s linear infinite;
+}
+
+.c2{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk2 3s linear infinite;
+}
+
+.c3{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk4 3s linear infinite;
+}
+
+.c4{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk3 3s linear infinite;
+}
+
+.c5{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk1 3s linear infinite;
+}
+
+.c6{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk2 3s linear infinite;
+}
+
+.c7{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk4 3s linear infinite;
+}
+
+.c8{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk3 3s linear infinite;
+}
+
+.c9{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk1 3s linear infinite;
+}
+
+.c10{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk2 3s linear infinite;
+}
+
+.c11{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk1 3s linear infinite;
+}
+
+.c12{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk4 3s linear infinite;
+}
+
+.c13{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk3 3s linear infinite;
+}
+
+.c14{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk4 3s linear infinite;
+}
+.c15{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk3 3s linear infinite;
+}
+
+.c16{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk3 3s linear infinite;
+}
+
+.c17{
+    background-color: red;
+    top: 0%;
+    left: 0%;;
+    animation: tuk1 3s linear infinite;
+}
+
+.c18{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk3 3s linear infinite;
+}
+
+.c19{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk2 3s linear infinite;
+}
+
+.c20{
+    background-color: red;
+    top: 0%;
+    left: 0%;
+    animation: tuk3 3s linear infinite;
+}
+  section img{
+    width: 35%;
+  }
+
+  .ball_pos_1{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+
+  .ball_pos_2{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+
+  .ball_pos_3{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+
+  .ball_pos_4{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+
+  .road{
+    width: 60%;
+  }
+
+  .flag_start{
+    position: absolute;
+    width: 10%;
+    top: -3%;
+    left: 41%;
+  }
+
+  #movingObject{
+    width: 7%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+  }
 }
