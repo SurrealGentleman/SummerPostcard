@@ -16,7 +16,7 @@
             padding: 0;
             background-color: #aee1ff;
             font-family: AdigianaUltra;
-            font-size: 9pt;
+            font-size: 7pt;
             color: #397DA6;
             transition: background-color 2s ease;
         }
@@ -264,10 +264,24 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
+            margin-bottom: 8%;
         }
 
         .balls img{
             width: 30%;
+        }
+
+        .balls-line1{
+            display: flex;
+            justify-content: center;
+        }
+
+        .balls-line2{
+            position: absolute;
+            top: 46%;
+            display: flex;
+            justify-content: center;
         }
 
         @keyframes rotate_r {
@@ -757,11 +771,15 @@ width: 26px;
         </header>
 
         <section class="balls">
-            <img src="assets/summer/balls.png" class="ball_pos_1 rotate_right" alt="воздушный шарик">
-            <img src="assets/summer/balls.png" class="ball_pos_2 rotate_left" alt="воздушный шарик">
-            <img src="assets/summer/balls.png" class="ball_pos_3 rotate_left" alt="воздушный шарик">
-            <img src="assets/summer/balls.png" class="ball_pos_4 rotate_right" alt="воздушный шарик">
-            <img src="assets/summer/balls.png" class="ball_pos_5 rotate_left" alt="воздушный шарик">
+            <div class="balls-line1">
+                <img src="assets/summer/balls.png" class="ball_pos_1 rotate_right" alt="воздушный шарик">
+                <img src="assets/summer/balls.png" class="ball_pos_2 rotate_left" alt="воздушный шарик">
+                <img src="assets/summer/balls.png" class="ball_pos_3 rotate_left" alt="воздушный шарик">
+            </div>
+            <div class="balls-line2">
+                <img src="assets/summer/balls.png" class="ball_pos_4 rotate_right" alt="воздушный шарик">
+                <img src="assets/summer/balls.png" class="ball_pos_5 rotate_left" alt="воздушный шарик">
+            </div>
         </section>
 
         <section class="block_plus_text">
@@ -874,6 +892,21 @@ width: 26px;
 
     <script>
         class ScrollPathAnimation {
+            // constructor() {
+            //     this.svg = document.getElementById('svg-container');
+            //     this.path = null;
+            //     this.movingElement = null;
+            //     this.pathLength = 0;
+            //     this.currentProgress = 0;
+            //     this.isAnimating = false;
+            //     this.svgSection = null;
+            //     this.svgTop = 0;
+            //     this.svgHeight = 0;
+            //     this.windowHeight = window.innerHeight;
+                
+            //     this.init();
+            //     this.setupEventListeners();
+            // }
             constructor() {
                 this.svg = document.getElementById('svg-container');
                 this.path = null;
@@ -890,20 +923,130 @@ width: 26px;
                 this.setupEventListeners();
             }
 
+            // createLabelsAlongPath() {
+            //     const labelsData = [
+            //         { text: "Пей малинку, чтобы не болеть", image: "assets/summer/raspberry.png", position: 0 },
+            //         { text: "Не можешь жить без мороженного", image: "assets/summer/ice_cream.png", position: 0.1},
+            //         { text: "У тебя самая красивая улыбка!", image: "assets/summer/smile.png", position: 1 },
+            //         { text: "Это реально твой цвет глаз?!?!?!", image: "assets/summer/eyes.png", position: 1 },
+            //         { text: "Твои рилсы просто огонь!", image: "assets/summer/fire.png", position: 1 },
+            //         { text: "Предпочитаешь арбуз", image: "assets/summer/watermelon.png", position: 1 },
+            //         // { text: "Ты прекрасно владеешь английским. Это прям разрыв мозга!", image: "assets/summer/brain.png", position: 0.56 },
+            //         { text: "Лучшая Клубника, которую я знаю!", image: "assets/summer/best_girl.png", position: 1 },
+            //         { text: "Я провожу тебя до лифта и обниму", image: "assets/summer/hugs.png", position: 1 },
+            //         { text: "Впечатления - наша валюта", image: "assets/summer/money.png", position: 1 },
+            //         { text: "Я расскажу тебе, какого я видел кота", image: "assets/summer/cat.png", position: 1 },
+            //         { text: "Ждули", image: "assets/summer/waiting.png", position: 1 }
+            //     ];
+
+            //     this.labels = [];
+
+            //     labelsData.forEach((labelData, index) => {
+            //         this.createLabel(labelData, index);
+            //     });
+            // }
+
             createLabelsAlongPath() {
                 const labelsData = [
-                    { text: "Пей малинку, чтобы не болеть", image: "assets/summer/raspberry.png", position: 0.01 },
-                    { text: "Не можешь жить без мороженного", image: "assets/summer/ice_cream.png", position: 0.16 },
-                    { text: "У тебя самая красивая улыбка!", image: "assets/summer/smile.png", position: 0.255 },
-                    { text: "Это реально твой цвет глаз?!?!?!", image: "assets/summer/eyes.png", position: 0.30 },
-                    { text: "Твои рилсы просто огонь!", image: "assets/summer/fire.png", position: 0.35 },
-                    { text: "Предпочитаешь арбуз", image: "assets/summer/watermelon.png", position: 0.45 },
-                    // { text: "Ты прекрасно владеешь английским. Это прям разрыв мозга!", image: "assets/summer/brain.png", position: 0.56 },
-                    { text: "Лучшая Клубника, которую я знаю!", image: "assets/summer/best_girl.png", position: 0.54 },
-                    { text: "Я провожу тебя до лифта и обниму", image: "assets/summer/hugs.png", position: 0.68 },
-                    { text: "Впечатления - наша валюта", image: "assets/summer/money.png", position: 0.90 },
-                    { text: "Я расскажу тебе, какого я видел кота", image: "assets/summer/cat.png", position: 0.82 },
-                    { text: "Ждули", image: "assets/summer/waiting.png", position: 0.95 }
+                    { 
+                        text: "Пей малинку, чтобы не болеть", 
+                        image: "assets/summer/raspberry.png", 
+                        position: 0,
+                        textOffsetX: 50,
+                        textOffsetY: 25,
+                        imageOffsetX: 60,
+                        imageOffsetY: -30
+                    },
+                    { 
+                        text: "Не можешь жить без мороженного", 
+                        image: "assets/summer/ice_cream.png", 
+                        position: 0.06,
+                        textOffsetX: 80,
+                        textOffsetY: 5,
+                        imageOffsetX: 40,
+                        imageOffsetY: -20
+                    },
+                    { 
+                        text: "У тебя самая красивая улыбка!", 
+                        image: "assets/summer/smile.png", 
+                        position: 0.15,
+                        textOffsetX: -10,
+                        textOffsetY: 25,
+                        imageOffsetX: -55,
+                        imageOffsetY: 35
+                    },
+                    { 
+                        text: "Это реально твой цвет глаз?!?!?!", 
+                        image: "assets/summer/eyes.png", 
+                        position: 0.25,
+                        textOffsetX: 30,
+                        textOffsetY: 70,
+                        imageOffsetX: -20,
+                        imageOffsetY: 45
+                    },
+                    { 
+                        text: "Твои рилсы просто огонь!", 
+                        image: "assets/summer/fire.png", 
+                        position: 0.17,
+                        textOffsetX: 20,
+                        textOffsetY: 50,
+                        imageOffsetX: 75,
+                        imageOffsetY: 0
+                    },
+                    { 
+                        text: "Предпочитаешь арбуз", 
+                        image: "assets/summer/watermelon.png", 
+                        position: 0.59,
+                        textOffsetX: 60,
+                        textOffsetY: 30,
+                        imageOffsetX: 140,
+                        imageOffsetY: 40
+                    },
+                    { 
+                        text: "Лучшая Клубника, которую я знаю!", 
+                        image: "assets/summer/best_girl.png", 
+                        position: 0.67,
+                        textOffsetX: 30,
+                        textOffsetY: 20,
+                        imageOffsetX: 50,
+                        imageOffsetY: 30
+                    },
+                    { 
+                        text: "Я провожу тебя до лифта и обниму", 
+                        image: "assets/summer/hugs.png", 
+                        position: 0.7,
+                        textOffsetX: 0,
+                        textOffsetY: 90,
+                        imageOffsetX: -35,
+                        imageOffsetY: 45
+                    },
+                    { 
+                        text: "Впечатления - наша валюта", 
+                        image: "assets/summer/money.png", 
+                        position: 0.6,
+                        textOffsetX: -1,
+                        textOffsetY: -30,
+                        imageOffsetX: 20,
+                        imageOffsetY: -55
+                    },
+                    { 
+                        text: "Я расскажу тебе, какого я видел кота", 
+                        image: "assets/summer/cat.png", 
+                        position: 0.45,
+                        textOffsetX: -1,
+                        textOffsetY: 50,
+                        imageOffsetX: -270,
+                        imageOffsetY: 20
+                    },
+                    { 
+                        text: "Ждули", 
+                        image: "assets/summer/waiting.png", 
+                        position: 0.94,
+                        textOffsetX: 50,
+                        textOffsetY: 0,
+                        imageOffsetX: 30,
+                        imageOffsetY: 10
+                    }
                 ];
 
                 this.labels = [];
@@ -915,54 +1058,31 @@ width: 26px;
 
             createLabel(labelData, index) {
                 const point = this.path.getPointAtLength(labelData.position * this.pathLength);
-                const tangent = this.path.getPointAtLength(labelData.position * this.pathLength + 1);
-                
-                // Вычисляем угол наклона пути
-                const angle = Math.atan2(tangent.y - point.y, tangent.x - point.x);
-                
-                // Определяем сторону (чередуем лево/право)
-                const side = index % 2 === 0 ? 1 : -1;
-                const offsetDistance = -30; // Расстояние от пути
-                const imageTextSpacing = 40; // Расстояние между картинкой и текстом
                 
                 // Создаем группу для метки
                 const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
                 group.setAttribute("class", "path-label");
                 group.setAttribute("transform", `translate(${point.x}, ${point.y})`);
                 
-                // Создаем линию-указатель к пути
-                const connector = document.createElementNS("http://www.w3.org/2000/svg", "line");
-                connector.setAttribute("x1", 0);
-                connector.setAttribute("y1", 0);
-                connector.setAttribute("x2", side * offsetDistance);
-                connector.setAttribute("y2", 0);
-                // connector.setAttribute("stroke", "#ccc");
-                // connector.setAttribute("stroke-width", "1");
-                // connector.setAttribute("stroke-dasharray", "3,3");
-                
                 // Создаем картинку
                 const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
                 image.setAttribute("width", "35");
                 image.setAttribute("height", "35");
                 image.setAttribute("href", labelData.image);
-                // image.setAttribute("x", side * (offsetDistance + (side > 0 ? -30 : 5)));
-                image.setAttribute("x", side * -120);
-                image.setAttribute("y", 20);
+                image.setAttribute("x", labelData.imageOffsetX);
+                image.setAttribute("y", labelData.imageOffsetY);
                 
                 // Создаем текст
                 const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                // text.setAttribute("x", side * (offsetDistance + (side > 0 ? -60 : 35)));
-                // text.setAttribute("width", "10");
-                text.setAttribute("x", 0);
-                text.setAttribute("y", 5);
-                text.setAttribute("text-anchor", side > 0 ? "end" : "start");
+                text.setAttribute("x", labelData.textOffsetX);
+                text.setAttribute("y", labelData.textOffsetY);
+                text.setAttribute("text-anchor", labelData.textOffsetX < 0 ? "end" : "start");
                 text.setAttribute("fill", "#333");
                 text.setAttribute("font-size", "12");
                 text.setAttribute("font-weight", "bold");
                 text.textContent = labelData.text;
                 
                 // Добавляем элементы в группу
-                group.appendChild(connector);
                 group.appendChild(image);
                 group.appendChild(text);
                 
@@ -972,6 +1092,66 @@ width: 26px;
                 // Сохраняем ссылку на группу
                 this.labels.push(group);
             }
+
+            // createLabel(labelData, index) {
+            //     const point = this.path.getPointAtLength(labelData.position * this.pathLength);
+            //     const tangent = this.path.getPointAtLength(labelData.position * this.pathLength + 1);
+                
+            //     // Вычисляем угол наклона пути
+            //     const angle = Math.atan2(tangent.y - point.y, tangent.x - point.x);
+                
+            //     // Определяем сторону (чередуем лево/право)
+            //     const side = index % 2 === 0 ? 1 : -1;
+            //     const offsetDistance = 0; // Расстояние от пути
+            //     const imageTextSpacing = 0; // Расстояние между картинкой и текстом
+                
+            //     // Создаем группу для метки
+            //     const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            //     group.setAttribute("class", "path-label");
+            //     group.setAttribute("transform", `translate(${point.x}, ${point.y})`);
+                
+            //     // Создаем линию-указатель к пути
+            //     const connector = document.createElementNS("http://www.w3.org/2000/svg", "line");
+            //     connector.setAttribute("x1", 0);
+            //     connector.setAttribute("y1", 0);
+            //     connector.setAttribute("x2", side * offsetDistance);
+            //     connector.setAttribute("y2", 0);
+            //     // connector.setAttribute("stroke", "#ccc");
+            //     // connector.setAttribute("stroke-width", "1");
+            //     // connector.setAttribute("stroke-dasharray", "3,3");
+                
+            //     // Создаем картинку
+            //     const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
+            //     image.setAttribute("width", "35");
+            //     image.setAttribute("height", "35");
+            //     image.setAttribute("href", labelData.image);
+            //     // image.setAttribute("x", side * (offsetDistance + (side > 0 ? -30 : 5)));
+            //     image.setAttribute("x", side * 50);
+            //     image.setAttribute("y", -20);
+                
+            //     // Создаем текст
+            //     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+            //     // text.setAttribute("x", side * (offsetDistance + (side > 0 ? -60 : 35)));
+            //     // text.setAttribute("width", "10");
+            //     text.setAttribute("x", 50);
+            //     text.setAttribute("y", 30);
+            //     text.setAttribute("text-anchor", -1 * side > 0 ? "end" : "start");
+            //     text.setAttribute("fill", "#333");
+            //     text.setAttribute("font-size", "12");
+            //     text.setAttribute("font-weight", "bold");
+            //     text.textContent = labelData.text;
+                
+            //     // Добавляем элементы в группу
+            //     group.appendChild(connector);
+            //     group.appendChild(image);
+            //     group.appendChild(text);
+                
+            //     // Добавляем группу в SVG
+            //     this.svg.appendChild(group);
+                
+            //     // Сохраняем ссылку на группу
+            //     this.labels.push(group);
+            // }
 
 
             
