@@ -379,7 +379,6 @@
         .card.flipped {
             transform: rotateY(180deg);
         }
-        
         .front, .back {
             position: absolute;
             width: 100%;
@@ -440,33 +439,56 @@
             left: 4%;
         }
 
+        .path-label {
+            pointer-events: none;
+        }
+        .path-label text {
+            font-family: Arial, sans-serif;
+            paint-order: stroke;
+            stroke: white;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .path-label image {
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+        }
 
-        @media (min-width: 400px) {
-            body {
-                font-size: 10pt;
+        footer{
+            display: flex;
+            justify-content: center;
+            height: 30px;
+        }
+
+        @media (min-width: 375px) {
+            body{
+                font-size: 8pt;
             }
-            header{
-                height: 24vh;
+            .text_photo{
+                bottom: 5%;
             }
-            .circle {
-                width: 60px;
-                height: 60px;
+            .back_btn{
+                bottom: 5%;
             }
         }
-        @media (min-width: 460px) {
-            body {
-                font-size: 12pt;
+        @media (min-width: 425px) {
+            body{
+                font-size: 10pt;
             }
-            header{
-                height: 26vh;
+            .text_photo{
+                bottom: 15%;
             }
-            .circles-container {
-                top: 20%;
-                left: -2%
+            .back_btn{
+                bottom: 5%;
             }
-            .circle {
-                width: 80px;
-                height: 80px;
+            .block_card{
+                height: 180px;
+            }
+            .front, .back {
+                height: 180px;
+            }
+            .back::before {
+                height: 180px;
             }
         }
         @media (min-width: 500px) {
@@ -486,80 +508,6 @@
             }
         }
 
-        
-        
-        
-        .controls {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            z-index: 1000;
-        }
-        
-        .info {
-            display: none;
-        }
-        
-        .progress-bar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: #e0e0e0;
-            z-index: 1000;
-        }
-        
-        .progress-fill {
-            height: 100%;
-            background: #e74c3c;
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-        
-        button {
-            padding: 10px 20px;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-        
-        button:hover {
-            background: #2980b9;
-        }
-
-
-        .path-label {
-            pointer-events: none;
-        }
-        
-        .path-label text {
-            font-family: Arial, sans-serif;
-            paint-order: stroke;
-            stroke: white;
-            stroke-width: 3px;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-        
-        .path-label image {
-            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
-        }
-
-        footer{
-            display: flex;
-            justify-content: center;
-            height: 30px;
-        }
     </style>
 </head>
 
@@ -570,9 +518,9 @@
         <div class="stars"></div>
     </div>
     
-    <div class="info" id="status-info">
+    <!-- <div class="info" id="status-info">
         Скроллите вниз чтобы увидеть анимацию
-    </div>
+    </div> -->
 
     <main>
         <header>
@@ -657,7 +605,6 @@
 
         <footer>
             © 2025 by Многофункциональная открытка
-            
         </footer> 
     </main>
 
@@ -1021,7 +968,7 @@
                 // Проверяем, находится ли SVG в области видимости
                 if (scrollPosition > this.svgTop && scrollY < svgBottom) {
                     this.isAnimating = true;
-                    document.getElementById('status-info').textContent = 'Анимация активна';
+                    // document.getElementById('status-info').textContent = 'Анимация активна';
                     
                     // Вычисляем прогресс анимации (0-1)
                     const animationStart = this.svgTop - windowHeight * 0.5;
@@ -1035,7 +982,7 @@
                     }
                 } else {
                     this.isAnimating = false;
-                    document.getElementById('status-info').textContent = 'Скроллите чтобы увидеть анимацию';
+                    // document.getElementById('status-info').textContent = 'Скроллите чтобы увидеть анимацию';
                 }
             }
             
@@ -1085,13 +1032,6 @@
                 // Обновляем позицию при загрузке
                 setTimeout(() => this.handleScroll(), 100);
             }
-            
-            reset() {
-                this.currentProgress = 0;
-                this.updateElementPosition(0);
-                window.scrollTo(0, 0);
-                document.getElementById('status-info').textContent = 'Скроллите чтобы увидеть анимацию';
-            }
         }
 
         let pathAnimation;
@@ -1101,15 +1041,9 @@
             
             // Добавляем начальную подсказку
             setTimeout(() => {
-                document.getElementById('status-info').textContent = 'Скроллите вниз чтобы начать анимацию';
+                // document.getElementById('status-info').textContent = 'Скроллите вниз чтобы начать анимацию';
             }, 1000);
         });
-
-        function resetAnimation() {
-            if (pathAnimation) {
-                pathAnimation.reset();
-            }
-        }
 
         // Плавный скролл для лучшего UX
         document.addEventListener('wheel', (e) => {
