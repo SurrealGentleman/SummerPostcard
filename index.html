@@ -65,6 +65,7 @@
             z-index: 2;
             text-align: center;
         }
+
         /* Позиционирование кружочков */
         .circle:nth-child(1) {
             top: 5%;
@@ -267,23 +268,19 @@
             position: relative;
             margin-bottom: 8%;
         }
-
         .balls img{
             width: 30%;
         }
-
         .balls-line1{
             display: flex;
             justify-content: center;
         }
-
         .balls-line2{
             position: absolute;
             top: 46%;
             display: flex;
             justify-content: center;
         }
-
         @keyframes rotate_r {
             0% {
                 transform: rotate(0deg);
@@ -298,7 +295,6 @@
                 transform: rotate(0deg);
             }
         }
-
         @keyframes rotate_l {
         0% {
             transform: rotate(0deg);
@@ -313,13 +309,11 @@
             transform: rotate(0deg);
         }
         }
-
         .balls .rotate_right {
             animation: rotate_r linear both;
             animation-timeline: scroll();
             animation-range: entry 0% cover 50%;
         }
-
         .balls .rotate_left {
             animation: rotate_l linear both;
             animation-timeline: scroll();
@@ -331,17 +325,121 @@
             justify-content: center;
         }
 
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: #333;
+        }
+        .svg-section {
+            position: relative;
+            /* background: white; */
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            /* border: 3px solid #2c3e50; */
+            border-radius: 15px;
+            overflow: hidden;
+            /* box-shadow: 0 10px 30px rgba(0,0,0,0.3); */
+        }
+        #svg-container {
+            width: 100%;
+            height: 100%;
+            /* background: #ecf0f1; */
+        }
+
         .moving-image {
             filter: url(#drop-shadow);
             transition: all 0.2s ease;
             z-index: 10;
         }
-        
         .start-image, .end-image {
             filter: url(#drop-shadow);
             opacity: 1;
             transition: opacity 0.3s ease;
         }
+
+        .block_card{
+            display: flex;
+            justify-content: center;
+            margin: 20% 0;
+            height: 145px;
+        }
+        .card {
+            perspective: 1000px;
+            width: 90%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            backface-visibility: hidden;
+            height: 137px;
+        }
+        .back {
+            transform: rotateY(180deg);
+            display: flex;
+        }
+        .back::before {
+            content: "";
+            width: 100%;
+            height: 135px;
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url(assets/summer/city.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(3px);
+            z-index: -1;
+            transform: rotateY(180deg);
+        }
+        .card_photo_f{
+            width: 100%;
+        }
+        .card_photo_b{
+            width: 40%;
+            position: absolute;
+            top: 10%;
+            right: 3%;
+            border-radius: 10px;
+        }
+        .text_photo{
+            position: absolute;
+            bottom: 15%;
+            right: 13%;
+            margin: 0 0 0 3%;
+        }
+        .text_card{
+            margin: 4% 3%;
+            width: 50%;
+        }
+        .click{
+            position: absolute;
+            width: 26px;
+            height: 27px;
+            top: 25%;
+            left: 62%;
+            z-index: 100;
+            /* background-color: red; */
+        }
+        .back_btn{
+            position: absolute;
+            width: 4%;
+            bottom: 10%;
+            left: 4%;
+        }
+
 
         @media (min-width: 400px) {
             body {
@@ -388,250 +486,8 @@
             }
         }
 
-        .block_card{
-            display: flex;
-            justify-content: center;
-            margin-top: 10%;
-            /* height: 263px; */
-            height: 280px;
-        }
-
-        .card {
-            perspective: 1000px;
-            width: 90%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: transform 1s;
-        }
-
-.card.flipped {
-  transform: rotateY(180deg);
-}
-
-.front, .back {
-  position: absolute;
-  width: 100%;
-  height: 184px;
-  backface-visibility: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.back {
-  transform: rotateY(180deg);
-}
-
-.back::before {
-  content: "";
-  width: 100%;
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url(assets/summer/city.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(5px);
-  z-index: -1;
-  transform: rotateY(180deg);
-}
-
-.card_photo_f{
-  width: 100%;
-}
-
-.card_photo_b{
-  width: 40%;
-  position: absolute;
-  top: 10%;
-  right: 5%;
-}
-
-.text_photo{
-  position: absolute;
-  bottom: 13%;
-  right: 15%;
-}
-
-.text_card{
-  margin: 4% 5%;
-  width: 50%;
-}
-
-.click{
-position: absolute;
-width: 26px;
-    height: 27px;
-    top: 25%;
-    left: 62%;
-    z-index: 100;
-    /* background-color: red; */
-}
-
-
-.back_btn{
-  position: absolute;
-  width: 4%;
-  bottom: 7%;
-  left: 4%;
-}
-
         
-/* 
-
-
-
-
-
-        header{
-            margin-top: 10%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 0;
-        }
-        header::before{
-            content: "";
-            width: 30px;
-            height: 30px;
-            border-radius: 100%;
-            background-color: red;
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
-            
-        }
-        header:nth-child(1) {
-            content: "";
-            width: 30px;
-            height: 30px;
-            border-radius: 100%;
-            background-color: green;
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
-        } */
-
-
-
-        /* .circles {
-            width: 100%;
-            height: auto;
-        }
-        .container {
-            position: relative;
-            width: 500px;
-            height: 200px;
-        }
-
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            animation: float 4s ease-in-out infinite;
-        } */
-
-        /* Первая линия (красные кружочки) */
-        /* .line-1 .circle {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-            box-shadow: 0 0 25px rgba(255, 107, 107, 0.7);
-            width: 60px;
-            height: 60px;
-        } */
-
-        /* Вторая линия (синие кружочки) */
-        /* .line-2 .circle {
-            background: linear-gradient(45deg, #4ecdc4, #44a08d);
-            box-shadow: 0 0 25px rgba(78, 205, 196, 0.7);
-            width: 50px;
-            height: 50px;
-        } */
-
-        /* Позиционирование кружочков первой линии */
-        /* .line-1 .circle:nth-child(1) { left: 50px; top: 70px; animation-delay: 0s; }
-        .line-1 .circle:nth-child(2) { left: 150px; top: 70px; animation-delay: 0.3s; }
-        .line-1 .circle:nth-child(3) { left: 250px; top: 70px; animation-delay: 0.6s; }
-        .line-1 .circle:nth-child(4) { left: 350px; top: 70px; animation-delay: 0.9s; }
-        .line-1 .circle:nth-child(5) { left: 450px; top: 70px; animation-delay: 1.2s; } */
-
-        /* Позиционирование кружочков второй линии */
-        /* .line-2 .circle:nth-child(1) { left: 80px; top: 80px; animation-delay: 0.1s; }
-        .line-2 .circle:nth-child(2) { left: 180px; top: 80px; animation-delay: 0.4s; }
-        .line-2 .circle:nth-child(3) { left: 280px; top: 80px; animation-delay: 0.7s; }
-        .line-2 .circle:nth-child(4) { left: 380px; top: 80px; animation-delay: 1.0s; }
-        .line-2 .circle:nth-child(5) { left: 480px; top: 80px; animation-delay: 1.3s; } */
-
-        /* Анимация наплывания */
-        /* @keyframes float {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-                opacity: 0.9;
-                z-index: 1;
-            }
-            25% {
-                transform: translateY(-40px) scale(1.2);
-                opacity: 1;
-                z-index: 10;
-            }
-            50% {
-                transform: translateY(0) scale(1);
-                opacity: 0.9;
-                z-index: 1;
-            }
-            75% {
-                transform: translateY(40px) scale(0.8);
-                opacity: 0.8;
-                z-index: 0;
-            }
-        } */
-
-        /* Дополнительная анимация для некоторых кружочков */
-        /* .circle:nth-child(odd) {
-            animation: float-odd 5s ease-in-out infinite;
-        }
-
-        @keyframes float-odd {
-            0%, 100% {
-                transform: translateX(0) rotate(0deg);
-            }
-            50% {
-                transform: translateX(20px) rotate(180deg);
-            }
-        } */
-
-
-
         
-        .section {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            color: #333;
-        }
-        
-        .svg-section {
-            position: relative;
-            /* background: white; */
-        }
-        
-        .container {
-            width: 100vw;
-            height: 100vh;
-            /* border: 3px solid #2c3e50; */
-            border-radius: 15px;
-            overflow: hidden;
-            /* box-shadow: 0 10px 30px rgba(0,0,0,0.3); */
-        }
-        
-        #svg-container {
-            width: 100%;
-            height: 100%;
-            /* background: #ecf0f1; */
-        }
         
         .controls {
             position: fixed;
@@ -646,16 +502,6 @@ width: 26px;
         }
         
         .info {
-            /* position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(255, 255, 255, 0.95);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            z-index: 1000;
-            font-weight: bold; */
             display: none;
         }
         
@@ -710,33 +556,24 @@ width: 26px;
         }
 
         footer{
-                display: flex
-;
-    justify-content: center;
-    height: 30px;
-
+            display: flex;
+            justify-content: center;
+            height: 30px;
         }
-
-
     </style>
 </head>
+
 <body>
     <div class="sky" aria-hidden="true">
         <div class="day"></div>
         <div class="night"></div>
         <div class="stars"></div>
     </div>
-    <!-- <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-    </div> -->
     
     <div class="info" id="status-info">
         Скроллите вниз чтобы увидеть анимацию
     </div>
-    
-    <!-- <div class="section">
-        <h1>Прокрутите вниз чтобы начать</h1>
-    </div> -->
+
     <main>
         <header>
             <!-- Кружочки на заднем плане -->
@@ -793,120 +630,39 @@ width: 26px;
         </div>
 
         <section class="block_card" id="card">
-          <div class="card">
-            <div class="front">
-              <img src="assets/summer/city_cat4.png" class="card_photo_f" alt="город">
-              <div class="click" id="click"></div>
-            </div>
+            <div class="card">
+                <div class="front">
+                    <img src="assets/summer/city_cat4.png" class="card_photo_f" alt="город">
+                    <div class="click" id="click"></div>
+                </div>
             
-            <div class="back">
-              <p class="text_card">
-                Виктория, ты самый яркий лучик света, в этом сером мире!<br>
-                С тобой весело и приятно. Ты заряжаешь немысленной энергией.<br>
-                И придаешь огромную мотивацию!<br>
-                Мы очень круто проводим время вместе. Я очень рад нашему знакомству!<br>
-                Спасибо тебе за то, что ты есть!
-              </p>
-              <img src="assets/summer/back.png" class="back_btn" id="backClick" alt="back">
-              <img src="assets/park.jpg" class="card_photo_b" alt="our_photo">
-              <p class="text_photo">Фото на память)</p>
-              
+                <div class="back">
+                    <p class="text_card">
+                        Виктория, ты самый яркий лучик света, в этом сером мире!<br>
+                        С тобой весело и приятно. Ты заряжаешь немысленной энергией.<br>
+                        И придаешь огромную мотивацию!<br>
+                        Мы очень круто проводим время вместе. Я очень рад нашему знакомству!<br>
+                        Спасибо тебе за то, что ты есть!
+                    </p>
+                    <img src="assets/summer/back.png" class="back_btn" id="backClick" alt="back">
+                    <img src="assets/summer/our_photo.jpg" class="card_photo_b" alt="our_photo">
+                    <!-- <div class="fade-edge-image">
+                        <img src="assets/summer/our_photo.jpg" alt="Ваше изображение">
+                    </div> -->
+                    <p class="text_photo">Фото на память)</p>
+                </div>
             </div>
-          </div>
         </section>
         <div class="trigger"></div>
 
         <footer>
             © 2025 by Многофункциональная открытка
+            
         </footer> 
-
-
-
-
-        <!-- <header>
-            <h1>ПЕРСОНАЛЬНАЯ ОТКРЫТКА...
-                <div class="container">
-                    <div class="title">ПЕРСОНАЛЬНАЯ ОТКРЫТКА...</div>
-                 -->
-                    <!-- Первая линия кружочков -->
-                    <!-- <div class="line-1">
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                    </div> -->
-                
-                    <!-- Вторая линия кружочков -->
-                    <!-- <div class="line-2">
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                        <div class="circle"></div>
-                    </div>
-                </div>
-
-
-              <div class="circles">
-                <div class="circle c1"></div>
-                <div class="circle c2"></div>
-                <div class="circle c3"></div>
-                <div class="circle c4"></div>
-                <div class="circle c5"></div>
-                <div class="circle c6"></div>
-
-                <div class="circle c7"></div>
-                <div class="circle c8"></div>
-                <div class="circle c9"></div>
-                <div class="circle c10"></div>
-                <div class="circle c11"></div>
-                <div class="circle c12"></div>
-                <div class="circle c13"></div>
-                <div class="circle c14"></div>
-                <div class="circle c15"></div>
-                <div class="circle c16"></div>
-                <div class="circle c17"></div>
-                <div class="circle c18"></div>
-                <div class="circle c19"></div>
-                <div class="circle c20"></div>
-              </div>
-            </h1>
-        </header> -->
     </main>
-    
-    
-    
-    <!-- <div class="section">
-        <h1>Продолжайте скроллить после анимации</h1>
-    </div>
-    
-    <div class="section">
-        <h1>Конец страницы</h1>
-    </div>
-    
-    <div class="controls">
-        <button onclick="resetAnimation()">Сбросить анимацию</button>
-        <span style="margin-left: 20px; color: #666;">Прогресс: <span id="progress-text">0%</span></span>
-    </div> -->
 
     <script>
         class ScrollPathAnimation {
-            // constructor() {
-            //     this.svg = document.getElementById('svg-container');
-            //     this.path = null;
-            //     this.movingElement = null;
-            //     this.pathLength = 0;
-            //     this.currentProgress = 0;
-            //     this.isAnimating = false;
-            //     this.svgSection = null;
-            //     this.svgTop = 0;
-            //     this.svgHeight = 0;
-            //     this.windowHeight = window.innerHeight;
-                
-            //     this.init();
-            //     this.setupEventListeners();
-            // }
             constructor() {
                 this.svg = document.getElementById('svg-container');
                 this.path = null;
@@ -922,29 +678,6 @@ width: 26px;
                 this.init();
                 this.setupEventListeners();
             }
-
-            // createLabelsAlongPath() {
-            //     const labelsData = [
-            //         { text: "Пей малинку, чтобы не болеть", image: "assets/summer/raspberry.png", position: 0 },
-            //         { text: "Не можешь жить без мороженного", image: "assets/summer/ice_cream.png", position: 0.1},
-            //         { text: "У тебя самая красивая улыбка!", image: "assets/summer/smile.png", position: 1 },
-            //         { text: "Это реально твой цвет глаз?!?!?!", image: "assets/summer/eyes.png", position: 1 },
-            //         { text: "Твои рилсы просто огонь!", image: "assets/summer/fire.png", position: 1 },
-            //         { text: "Предпочитаешь арбуз", image: "assets/summer/watermelon.png", position: 1 },
-            //         // { text: "Ты прекрасно владеешь английским. Это прям разрыв мозга!", image: "assets/summer/brain.png", position: 0.56 },
-            //         { text: "Лучшая Клубника, которую я знаю!", image: "assets/summer/best_girl.png", position: 1 },
-            //         { text: "Я провожу тебя до лифта и обниму", image: "assets/summer/hugs.png", position: 1 },
-            //         { text: "Впечатления - наша валюта", image: "assets/summer/money.png", position: 1 },
-            //         { text: "Я расскажу тебе, какого я видел кота", image: "assets/summer/cat.png", position: 1 },
-            //         { text: "Ждули", image: "assets/summer/waiting.png", position: 1 }
-            //     ];
-
-            //     this.labels = [];
-
-            //     labelsData.forEach((labelData, index) => {
-            //         this.createLabel(labelData, index);
-            //     });
-            // }
 
             createLabelsAlongPath() {
                 const labelsData = [
@@ -988,9 +721,9 @@ width: 26px;
                         text: "Твои рилсы просто огонь!", 
                         image: "assets/summer/fire.png", 
                         position: 0.17,
-                        textOffsetX: 20,
-                        textOffsetY: 50,
-                        imageOffsetX: 75,
+                        textOffsetX: 10,
+                        textOffsetY: 60,
+                        imageOffsetX: 70,
                         imageOffsetY: 0
                     },
                     { 
@@ -1093,68 +826,6 @@ width: 26px;
                 this.labels.push(group);
             }
 
-            // createLabel(labelData, index) {
-            //     const point = this.path.getPointAtLength(labelData.position * this.pathLength);
-            //     const tangent = this.path.getPointAtLength(labelData.position * this.pathLength + 1);
-                
-            //     // Вычисляем угол наклона пути
-            //     const angle = Math.atan2(tangent.y - point.y, tangent.x - point.x);
-                
-            //     // Определяем сторону (чередуем лево/право)
-            //     const side = index % 2 === 0 ? 1 : -1;
-            //     const offsetDistance = 0; // Расстояние от пути
-            //     const imageTextSpacing = 0; // Расстояние между картинкой и текстом
-                
-            //     // Создаем группу для метки
-            //     const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-            //     group.setAttribute("class", "path-label");
-            //     group.setAttribute("transform", `translate(${point.x}, ${point.y})`);
-                
-            //     // Создаем линию-указатель к пути
-            //     const connector = document.createElementNS("http://www.w3.org/2000/svg", "line");
-            //     connector.setAttribute("x1", 0);
-            //     connector.setAttribute("y1", 0);
-            //     connector.setAttribute("x2", side * offsetDistance);
-            //     connector.setAttribute("y2", 0);
-            //     // connector.setAttribute("stroke", "#ccc");
-            //     // connector.setAttribute("stroke-width", "1");
-            //     // connector.setAttribute("stroke-dasharray", "3,3");
-                
-            //     // Создаем картинку
-            //     const image = document.createElementNS("http://www.w3.org/2000/svg", "image");
-            //     image.setAttribute("width", "35");
-            //     image.setAttribute("height", "35");
-            //     image.setAttribute("href", labelData.image);
-            //     // image.setAttribute("x", side * (offsetDistance + (side > 0 ? -30 : 5)));
-            //     image.setAttribute("x", side * 50);
-            //     image.setAttribute("y", -20);
-                
-            //     // Создаем текст
-            //     const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-            //     // text.setAttribute("x", side * (offsetDistance + (side > 0 ? -60 : 35)));
-            //     // text.setAttribute("width", "10");
-            //     text.setAttribute("x", 50);
-            //     text.setAttribute("y", 30);
-            //     text.setAttribute("text-anchor", -1 * side > 0 ? "end" : "start");
-            //     text.setAttribute("fill", "#333");
-            //     text.setAttribute("font-size", "12");
-            //     text.setAttribute("font-weight", "bold");
-            //     text.textContent = labelData.text;
-                
-            //     // Добавляем элементы в группу
-            //     group.appendChild(connector);
-            //     group.appendChild(image);
-            //     group.appendChild(text);
-                
-            //     // Добавляем группу в SVG
-            //     this.svg.appendChild(group);
-                
-            //     // Сохраняем ссылку на группу
-            //     this.labels.push(group);
-            // }
-
-
-            
             init() {
                 this.createPath();
                 // Добавляем изображения в начало и конец пути
@@ -1333,29 +1004,7 @@ width: 26px;
                 // Для image элемента устанавливаем x и y вместо cx и cy
                 this.movingElement.setAttribute("x", point.x);
                 this.movingElement.setAttribute("y", point.y);
-                
-                // Безопасное обновление прогресса с проверкой элементов
-                // if (this.progressText) {
-                //     this.progressText.textContent = Math.round(progress * 100) + '%';
-                // }
-                // if (this.progressFill) {
-                //     this.progressFill.style.width = (progress * 100) + '%';
-                // }
-                
-                // Показываем/скрываем изображения в зависимости от прогресса
-                // this.updateStartEndImagesVisibility(progress);
             }
-
-            // updateStartEndImagesVisibility(progress) {
-            //     // Можно добавить анимацию появления/исчезновения
-            //     if (progress > 0.1 && this.startImage) {
-            //         this.startImage.style.opacity = Math.max(0, 1 - progress * 2);
-            //     }
-                
-            //     if (progress > 0.8 && this.endImage) {
-            //         this.endImage.style.opacity = Math.min(1, (progress - 0.8) * 5);
-            //     }
-            // }
             
             handleScroll() {
                 const scrollY = window.scrollY;
@@ -1470,92 +1119,85 @@ width: 26px;
             }
         }, { passive: false });
     </script>
-<script>
-  const click = document.getElementById('click');
-  const backClick = document.getElementById('backClick');
-  const card = document.getElementById('card');
-  const innerCard = card.querySelector('.card');
 
-  click.addEventListener('click', () => {
-    innerCard.classList.add('flipped');
-  });
+    <script>
+        const click = document.getElementById('click');
+        const backClick = document.getElementById('backClick');
+        const card = document.getElementById('card');
+        const innerCard = card.querySelector('.card');
 
-  backClick.addEventListener('click', () => {
-    innerCard.classList.remove('flipped');
-  });
-</script>
-<script>
-(() => {
-  const root = document.documentElement;
-  const target = document.querySelector('.trigger');
-  if (!target) return;
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        document.body.classList.add('night-mode');
-      } else {
-        document.body.classList.remove('night-mode');
-      }
-    });
-  }, {
-    threshold: 0.1
-  });
+        click.addEventListener('click', () => {
+            innerCard.classList.add('flipped');
+        });
 
-  observer.observe(target);
-})();
-</script>
+        backClick.addEventListener('click', () => {
+            innerCard.classList.remove('flipped');
+        });
+    </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const svg = document.querySelector(".road").contentDocument || document.querySelector(".road");
-    const movingObject = document.getElementById("movingObject");
-    const pageWidth = window.innerWidth;
-    const pageHeight = window.innerHeight;
+    <script>
+        (() => {
+            const root = document.documentElement;
+            const target = document.querySelector('.trigger');
+            if (!target) return;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        document.body.classList.add('night-mode');
+                    } else {
+                        document.body.classList.remove('night-mode');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            observer.observe(target);
+        })();
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const svg = document.querySelector(".road").contentDocument || document.querySelector(".road");
+            const movingObject = document.getElementById("movingObject");
+            const pageWidth = window.innerWidth;
+            const pageHeight = window.innerHeight;
     
 
-    // ждём загрузки svg
-    if (svg instanceof SVGSVGElement) {
-        init(svg);
-    } else {
-        document.querySelector(".road").addEventListener("load", () => {
-            init(document.querySelector(".road").contentDocument.querySelector("svg"));
+            // ждём загрузки svg
+            if (svg instanceof SVGSVGElement) {
+                init(svg);
+            } else {
+                document.querySelector(".road").addEventListener("load", () => {
+                    init(document.querySelector(".road").contentDocument.querySelector("svg"));
+                });
+            }
+
+            function init(svg) {
+                const path = svg.querySelector("#roadPath");
+                const pathLength = path.getTotalLength();
+
+                window.addEventListener("scroll", () => {
+                    // прогресс скролла (0..1)
+                    const scrollTop = window.scrollY;
+                    const docHeight = document.body.scrollHeight - window.innerHeight;
+                    const scrollPercent = scrollTop / docHeight;
+
+                    // позиция вдоль пути
+                    const point = path.getPointAtLength(scrollPercent * pathLength);
+                    movingObject.style.top = point.y - 5 + "px";
+                    movingObject.style.left = point.x + 35 + "px";
+                });
+            }
+
+            window.addEventListener("scroll", () => {
+                const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+                // резкие шаги
+                const stepAngle = Math.sin(scrollPercent * 30 * Math.PI) * 25; // частота выше, амплитуда больше
+                movingObject.style.transform = `translate(-50%, -50%) rotate(${stepAngle}deg)`;
+            });
         });
-    }
-
-    function init(svg) {
-        const path = svg.querySelector("#roadPath");
-        const pathLength = path.getTotalLength();
-
-        window.addEventListener("scroll", () => {
-            // прогресс скролла (0..1)
-            const scrollTop = window.scrollY;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollPercent = scrollTop / docHeight;
-            // const maxPercent = 0.98;
-            // if (scrollPercent > maxPercent) scrollPercent = maxPercent;
-
-            // позиция вдоль пути
-            const point = path.getPointAtLength(scrollPercent * pathLength);
-            movingObject.style.top = point.y - 5 + "px";
-            // movingObject.style.left = (point.x / pageWidth * 100) + 40 + "%";
-            movingObject.style.left = point.x + 35 + "px";
-        });
-    }
-
-
-    window.addEventListener("scroll", () => {
-        const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-
-        // резкие шаги
-        const stepAngle = Math.sin(scrollPercent * 30 * Math.PI) * 25; // частота выше, амплитуда больше
-
-        movingObject.style.transform = `translate(-50%, -50%) rotate(${stepAngle}deg)`;
-    });
-});
-</script>
-
-
-
+    </script>
 
 </body>
 </html>
