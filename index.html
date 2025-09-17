@@ -29,15 +29,16 @@
             flex-direction: column;
             z-index: 0;
             position: relative;
+            align-items: center;
         }
         header{
-            margin-top: 10%;
+            margin-top: 40px;
             position: relative;
             z-index: 0;
             overflow: hidden;
-            width: 100%;
+            width: 320px;
             height: 19vh;
-            max-width: 800px;
+            /* max-width: 800px; */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -266,7 +267,8 @@
             justify-content: center;
             flex-wrap: wrap;
             position: relative;
-            margin-bottom: 8%;
+            margin-bottom: 40px;
+            width: 320px;
         }
         .balls img{
             width: 30%;
@@ -331,7 +333,7 @@
             justify-content: center;
             align-items: center;
             font-size: 2rem;
-            color: #333;
+            /* color: #333; */
         }
         .svg-section {
             position: relative;
@@ -362,7 +364,231 @@
             transition: opacity 0.3s ease;
         }
 
-        .block_card{
+
+        .block_card {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0 10px;
+        }
+        .card {
+            perspective: 1000px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        .back {
+            transform: rotateY(180deg);
+            position: relative;
+        }
+        .back_blur_bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(3px);
+            z-index: 1;
+            transform: rotateY(180deg);
+        }
+        .back_content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+        }
+        .card_photo_f {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .card_photo_b {
+            width: 45%;
+            height: auto;
+            position: absolute;
+            top: 7%;
+            right: 3%;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 2px 0px 5px rgba(0,0,0,0.7);
+        }
+        .text_photo {
+            position: absolute;
+            bottom: 15%;
+            right: 14%;
+            margin: 0;
+            color: #988244;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+        }
+        .text_card {
+            margin: 5% 3% 10%;
+            width: 50%;
+            color: #988244;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            font-size: 7pt;
+        }
+        .click {
+            position: absolute;
+            width: 26px;
+            height: 27px;
+            top: 25%;
+            left: 62%;
+            z-index: 100;
+            cursor: pointer;
+        }
+        .back_btn {
+            position: absolute;
+            width: 5%;
+            height: auto;
+            bottom: 7%;
+            left: 4%;
+            cursor: pointer;
+        }
+
+        .floating-images-section {
+            position: relative;
+            width: 320px;
+            padding: 65px 0px;
+            overflow: hidden;
+        }
+
+        .floating-image {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Позиционирование каждой картинки */
+        .image-1 {
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .image-2 {
+            top: 60%;
+            left: 5%;
+            animation-delay: 0.5s;
+        }
+
+        .image-3 {
+            top: 50%;
+            left: 25%;
+            animation-delay: 1s;
+        }
+
+        .image-4 {
+            top: 10%;
+            left: 35%;
+            animation-delay: 1.5s;
+        }
+
+        .image-5 {
+            top: 50%;
+            left: 45%;
+            animation-delay: 2s;
+        }
+
+        .image-6 {
+            top: 30%;
+            left: 60%;
+            animation-delay: 0.5s;
+        }
+
+        .image-7 {
+            top: 10%;
+            left: 90%;
+            animation-delay: 1s;
+        }
+
+        .image-8 {
+            top: 77%;
+            left: 85%;
+            animation-delay: 1.5s;
+        }
+
+        .image-9 {
+            top: 75%;
+            left: 55%;
+            animation-delay: 2s;
+        }
+
+        .image-10 {
+            top: 50%;
+            left: 75%;
+            animation-delay: 2s;
+        }
+
+/* Анимация плавающего эффекта */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+/* Адаптивность для мобильных устройств */
+/* @media (max-width: 768px) {
+    .block_card {
+        margin: 15% 0;
+        height: 200px;
+    }
+    
+    .text_card {
+        width: 45%;
+        font-size: clamp(10px, 2vw, 14px);
+        margin: 3% 2%;
+    }
+    
+    .card_photo_b {
+        width: 35%;
+        top: 8%;
+        right: 2%;
+    }
+    
+    .text_photo {
+        bottom: 12%;
+        right: 10%;
+        font-size: 12px;
+    }
+    
+    .back_btn {
+        width: 16px;
+        height: 16px;
+        bottom: 8%;
+        left: 3%;
+    }
+    
+    .click {
+        width: 22px;
+        height: 23px;
+        top: 30%;
+        left: 65%;
+    }
+} */
+
+
+
+
+
+
+
+        /* .block_card{
             display: flex;
             justify-content: center;
             margin: 20% 0;
@@ -375,11 +601,11 @@
             position: relative;
             transform-style: preserve-3d;
             transition: transform 1s;
-        }
-        .card.flipped {
+        }*/
+        /* .card.flipped {
             transform: rotateY(180deg);
-        }
-        .front, .back {
+        }  */
+        /* .front, .back {
             position: absolute;
             width: 100%;
             backface-visibility: hidden;
@@ -402,8 +628,8 @@
             filter: blur(3px);
             z-index: -1;
             transform: rotateY(180deg);
-        }
-        .card_photo_f{
+        } */
+        /* .card_photo_f{
             width: 100%;
         }
         .card_photo_b{
@@ -422,36 +648,37 @@
         .text_card{
             margin: 4% 3%;
             width: 50%;
-        }
-        .click{
+        } */
+        /* .click{
             position: absolute;
             width: 26px;
             height: 27px;
             top: 25%;
             left: 62%;
             z-index: 100;
-            /* background-color: red; */
-        }
-        .back_btn{
+            /* background-color: red;
+        } */
+        /* .back_btn{
             position: absolute;
             width: 4%;
             bottom: 10%;
             left: 4%;
-        }
+        } */
 
         .path-label {
             pointer-events: none;
         }
-        .path-label text {
-            font-family: Arial, sans-serif;
+        text {
+            font-size: 12pt;
             paint-order: stroke;
-            stroke: white;
+            fill: #397DA6;
+            /* color: white; */
             stroke-width: 3px;
             stroke-linecap: round;
             stroke-linejoin: round;
         }
         .path-label image {
-            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+            /* filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3)); */
         }
 
         footer{
@@ -464,45 +691,46 @@
             body{
                 font-size: 8pt;
             }
-            .text_photo{
-                bottom: 5%;
-            }
-            .back_btn{
-                bottom: 5%;
-            }
-        }
-        @media (min-width: 425px) {
-            body{
-                font-size: 10pt;
+            .text_card{
+                font-size: 8pt;
             }
             .text_photo{
                 bottom: 15%;
             }
+            .card_photo_b{
+                width: 45%;
+                right: 3%;
+            }
             .back_btn{
-                bottom: 5%;
+                bottom: 9%;
+                left: 3%;
+                width: 4%;
             }
-            .block_card{
-                height: 180px;
-            }
-            .front, .back {
-                height: 180px;
-            }
-            .back::before {
-                height: 180px;
+            footer{
+                font-size: 8pt;
             }
         }
-        @media (min-width: 768px) {
+        @media (min-width: 425px) {
             body{
-                font-size: 14pt;
+                font-size: 8pt;
             }
-            .block_card{
-                height: 324px;
+            .text_card{
+                font-size: 8pt;
             }
-            .front, .back {
-                height: 324px;
+            .text_photo{
+                bottom: 15%;
             }
-            .back::before {
-                height: 324px;
+            .card_photo_b{
+                width: 45%;
+                right: 3%;
+            }
+            .back_btn{
+                bottom: 9%;
+                left: 3%;
+                width: 4%;
+            }
+            footer{
+                font-size: 8pt;
             }
         }
 
@@ -575,7 +803,57 @@
             </div>
         </div>
 
+        <section class="floating-images-section">
+            <!-- Картинки будут позиционироваться абсолютно -->
+            <img src="assets/summer/stars.png" class="floating-image image-1" alt="stars">
+            <img src="assets/summer/stars.png" class="floating-image image-2" alt="stars">
+            <img src="assets/summer/stars.png" class="floating-image image-3" alt="stars">
+            <img src="assets/summer/stars.png" class="floating-image image-4" alt="stars">
+            <img src="assets/summer/stars.png" class="floating-image image-5" alt="stars">
+            <img src="assets/summer/stars.png" class="floating-image image-6" alt="stars">
+            <img src="assets/summer/stars.png" class="floating-image image-7" alt="stars">
+            <img src="assets/summer/stars.png" class="floating-image image-8" alt="stars">
+            <img src="assets/summer/stars.png" class="floating-image image-9" alt="stars">
+            <img src="assets/summer/stars.png" class="floating-image image-10" alt="stars">
+        </section>
+        <!-- <script>
+            // Если нужно случайное расположение
+document.querySelectorAll('.floating-image').forEach(img => {
+    const randomTop = Math.random() * 80 + 10; // 10-90%
+    const randomLeft = Math.random() * 80 + 10; // 10-90%
+    img.style.top = `${randomTop}%`;
+    img.style.left = `${randomLeft}%`;
+});
+        </script> -->
+
         <section class="block_card" id="card">
+            <div class="card">
+                <div class="front">
+                    <img src="assets/summer/city_cat4.png" class="card_photo_f" alt="город">
+                    <div class="click" id="click"></div>
+                </div>
+            
+                <div class="back">
+                    <!-- Фоновое изображение с blur эффектом -->
+                    <img src="assets/summer/city.jpg" class="back_blur_bg" alt="blur background">
+                    
+                    <div class="back_content">
+                        <p class="text_card">
+                            Виктория, ты самый яркий лучик света, в этом сером мире!<br>
+                            С тобой весело и приятно. Ты заряжаешь немысленной энергией.<br>
+                            И придаешь огромную мотивацию!<br>
+                            Мы очень круто проводим время вместе. Я очень рад нашему знакомству!<br>
+                            Спасибо тебе за то, что ты есть!
+                        </p>
+                        <img src="assets/summer/back.png" class="back_btn" id="backClick" alt="back">
+                        <img src="assets/summer/our_photo.jpg" class="card_photo_b" alt="our_photo">
+                        <p class="text_photo">Фото на память)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section class="block_card" id="card">
             <div class="card">
                 <div class="front">
                     <img src="assets/summer/city_cat4.png" class="card_photo_f" alt="город">
@@ -592,13 +870,13 @@
                     </p>
                     <img src="assets/summer/back.png" class="back_btn" id="backClick" alt="back">
                     <img src="assets/summer/our_photo.jpg" class="card_photo_b" alt="our_photo">
-                    <!-- <div class="fade-edge-image">
+                    <div class="fade-edge-image">
                         <img src="assets/summer/our_photo.jpg" alt="Ваше изображение">
                     </div> -->
-                    <p class="text_photo">Фото на память)</p>
-                </div>
-            </div>
-        </section>
+                    <!-- <p class="text_photo">Фото на память)</p> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        <!-- </section> -->
         <div class="trigger"></div>
 
         <footer>
@@ -755,9 +1033,7 @@
                 text.setAttribute("x", labelData.textOffsetX);
                 text.setAttribute("y", labelData.textOffsetY);
                 text.setAttribute("text-anchor", labelData.textOffsetX < 0 ? "end" : "start");
-                text.setAttribute("fill", "#333");
                 text.setAttribute("font-size", "12");
-                text.setAttribute("font-weight", "bold");
                 text.textContent = labelData.text;
                 
                 // Добавляем элементы в группу
