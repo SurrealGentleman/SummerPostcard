@@ -206,7 +206,6 @@ header{
 .circle:nth-child(24) {
 	top: 10%;
 	left: 55%;
-	background-color: red;
 }
 @keyframes cloudUP {
 	0% {
