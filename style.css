@@ -32,7 +32,7 @@ header{
 	width: 320px;
 	height: 19vh;
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	justify-content: center;
 }
 .circles-container {
