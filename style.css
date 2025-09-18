@@ -192,6 +192,14 @@ header{
 	animation: cloudDOWNRIGHT 3s linear infinite;
 	animation-delay: 0s;
 }
+.circle:nth-child(23) {
+	top: 0%;
+	left: 15%;
+}
+.circle:nth-child(24) {
+	top: 0%;
+	left: 30%;
+}
 @keyframes cloudUP {
 	0% {
 		transform: translate(0%, 0%);
