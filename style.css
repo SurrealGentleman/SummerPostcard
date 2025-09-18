@@ -203,6 +203,11 @@ header{
 	top: 0%;
 	left: 30%;
 }
+.circle:nth-child(24) {
+	top: 10%;
+	left: 55%;
+	background-color: red;
+}
 @keyframes cloudUP {
 	0% {
 		transform: translate(0%, 0%);
