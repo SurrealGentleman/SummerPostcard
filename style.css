@@ -32,12 +32,12 @@ header{
 	width: 320px;
 	height: 19vh;
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	justify-content: center;
 }
-/* .content h1{
-	margin-top: 15%;
-} */
+.content h1{
+	margin-top: 20%;
+}
 .circles-container {
 	position: absolute;
 	top: 26%;
