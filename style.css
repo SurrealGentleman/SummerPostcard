@@ -61,7 +61,7 @@ header{
 
 /* Позиционирование кружочков */
 .circle:nth-child(1) {
-	top: 5%;
+	top: 0%;
 	left: 5%;
 	animation: cloudUP 3s linear infinite;
 	animation-delay: 0s;
@@ -183,6 +183,12 @@ header{
 .circle:nth-child(21) {
 	top: 0%;
 	left: 59%;
+	animation: cloudDOWNRIGHT 3s linear infinite;
+	animation-delay: 0s;
+}
+.circle:nth-child(22) {
+	top: 5%;
+	left: 2%;
 	animation: cloudDOWNRIGHT 3s linear infinite;
 	animation-delay: 0s;
 }
